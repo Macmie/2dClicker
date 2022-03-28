@@ -490,7 +490,7 @@ GameObject:
   - component: {fileID: 235446499}
   - component: {fileID: 235446498}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: PlayerNameTxt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -535,7 +535,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: PlayerName
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -787,10 +787,10 @@ RectTransform:
   m_Father: {fileID: 529585989}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 12.599976, y: 9.228302}
-  m_SizeDelta: {x: -1038.97, y: -129.27}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 13.81, y: 407.2283}
+  m_SizeDelta: {x: 883.45, y: 666.73}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &398498453
 MonoBehaviour:
@@ -1252,10 +1252,10 @@ RectTransform:
   m_Father: {fileID: 529585989}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.5}
-  m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 665.645, y: 77.688}
-  m_SizeDelta: {x: -1531.29, y: 529.96}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -294.35498, y: 475.688}
+  m_SizeDelta: {x: 388.70996, y: 529.96}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &708490953
 MonoBehaviour:
@@ -1425,7 +1425,7 @@ GameObject:
   - component: {fileID: 795147372}
   - component: {fileID: 795147371}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: EnemyNameTxt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1470,7 +1470,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: 'EnemyName
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2052,10 +2054,10 @@ RectTransform:
   m_Father: {fileID: 529585989}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.5}
-  m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -658, y: 77.688}
-  m_SizeDelta: {x: -1516.58, y: 529.96}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 302, y: 475.688}
+  m_SizeDelta: {x: 403.42004, y: 529.96}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1160014257
 MonoBehaviour:
