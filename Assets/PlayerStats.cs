@@ -5,13 +5,24 @@ using UnityEngine.UI;
 
 public class PlayerStats : MonoBehaviour
 {
+    private static PlayerStats instance;
+
+    public static PlayerStats Instance { get { return instance; } }
+
+    private void Awake()
+    {
+        if (instance != null && instance != this) Destroy(gameObject);
+        else instance = this;
+    }
+
+
     public float Damage { get; private set; }
     public float Health { get; private set; }
     public float AttackSpeed { get; private set; }
 
-    [SerializeField] private Image playerIcon;
+    public Sprite PlayerIcon { get; private set; }
 
-    // Start is called before the first frame update
+
     void Start()
     {
         Damage = 1f;
