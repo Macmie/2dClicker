@@ -12,26 +12,31 @@ public class BattleInfo : MonoBehaviour
     [SerializeField] private TextMeshProUGUI playerDmg;
     [SerializeField] private TextMeshProUGUI playerHealth;
     [SerializeField] private TextMeshProUGUI playerAtkSpeed;
+    [SerializeField] private TextMeshProUGUI playerName;
 
     [Header("Enemy Stats")]
     [SerializeField] private TextMeshProUGUI enemyDmg;
     [SerializeField] private TextMeshProUGUI enemyHealth;
     [SerializeField] private TextMeshProUGUI enemyAtkSpeed;
+    [SerializeField] private TextMeshProUGUI enemyName;
 
     [Header("Icons")]
-
     [SerializeField] private Sprite playerIcon;
     [SerializeField] private Sprite enemyIcon;
-
+    [Header("Panel Icons")]
+    [SerializeField] private Image playerPanel;
+    [SerializeField] private Image enemyPanel;
 
     private BattleState battleState;
 
     private void Start()
     {
-        playerDmg.text = PlayerStats.Instance.Damage.ToString();
-        playerHealth.text = PlayerStats.Instance.Health.ToString();
-        playerAtkSpeed.text = PlayerStats.Instance.AttackSpeed.ToString();
-        playerIcon = PlayerStats.Instance.PlayerIcon;
+        playerDmg.text = PlayerStats.Instance.GetDamageValue().ToString("F4");
+        playerHealth.text = PlayerStats.Instance.GetHealthValue().ToString("F4");
+        playerAtkSpeed.text = PlayerStats.Instance.GetAttackSpeedValue().ToString("F4");
+        playerName.text = PlayerStats.Instance.GetPlayerName();
+        playerIcon = PlayerStats.Instance.playerIcon;
+        playerPanel.sprite = playerIcon;
 
         battleState = BattleState.Hunt;
     }

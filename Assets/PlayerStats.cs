@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[System.Serializable]
 public class PlayerStats : MonoBehaviour
 {
     private static PlayerStats instance;
@@ -15,18 +16,27 @@ public class PlayerStats : MonoBehaviour
         else instance = this;
     }
 
+    [SerializeField] private float damage;
+    [SerializeField] private float health;
+    [SerializeField] private float attackSpeed;
+    [SerializeField] private string playerName;
 
-    public float Damage { get; private set; }
-    public float Health { get; private set; }
-    public float AttackSpeed { get; private set; }
-
-    public Sprite PlayerIcon { get; private set; }
+    public Sprite playerIcon;
 
 
     void Start()
     {
-        Damage = 1f;
-        Health = 25f;
-        AttackSpeed = 1.5f;
+        damage = 1f;
+        health = 25f;
+        attackSpeed = 1.5f;
     }
+
+    public float GetDamageValue() => damage;
+
+    public float GetHealthValue() => health;
+
+    public float GetAttackSpeedValue() => attackSpeed;
+
+    public string GetPlayerName() => playerName;
+
 }
