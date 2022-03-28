@@ -163,6 +163,7 @@ GameObject:
   - component: {fileID: 7333992393589354381}
   - component: {fileID: 7333992393589354383}
   - component: {fileID: 7333992393589354382}
+  - component: {fileID: 3373908814130204528}
   m_Layer: 5
   m_Name: BattleInfo
   m_TagString: Untagged
@@ -230,6 +231,30 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &3373908814130204528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7333992393589354380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7131a92716444f74b96041703c519c07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerDmg: {fileID: 7333992393715580010}
+  playerHealth: {fileID: 7333992394630099958}
+  playerAtkSpeed: {fileID: 7333992394065163706}
+  playerName: {fileID: 7333992393849903146}
+  enemyDmg: {fileID: 0}
+  enemyHealth: {fileID: 0}
+  enemyAtkSpeed: {fileID: 0}
+  enemyName: {fileID: 0}
+  playerIcon: {fileID: 0}
+  enemyIcon: {fileID: 0}
+  playerPanel: {fileID: 7333992394320580097}
+  enemyPanel: {fileID: 0}
 --- !u!1 &7333992393715579991
 GameObject:
   m_ObjectHideFlags: 0
