@@ -506,6 +506,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 722847702}
   m_CullTransparentMesh: 1
+--- !u!114 &734534947 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7333992393715580010, guid: 8ff29e1d41f568646aa2de3a38eb108c, type: 3}
+  m_PrefabInstance: {fileID: 7333992393682696392}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1330609736
 GameObject:
   m_ObjectHideFlags: 0
@@ -701,6 +712,7 @@ GameObject:
   - component: {fileID: 1639052844}
   - component: {fileID: 1639052843}
   - component: {fileID: 1639052842}
+  - component: {fileID: 1639052845}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -810,6 +822,34 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1639052840}
   m_CullTransparentMesh: 1
+--- !u!114 &1639052845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1639052840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c12e63a5c5c48fb448c4dbf64de0fac6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  globalModifier: 0.12
+  enemies:
+  - {fileID: 7333992393682696395}
+  - {fileID: 7333992393682696394}
+  - {fileID: 7333992393682696393}
+  huntSpecialization: 0.2
+  firstName:
+  - Grzdyl
+  - "\u0141yk"
+  - Krzyk
+  - "M\u0142ot"
+  lastName:
+  - Rozpaczy
+  - Cierpienia
+  - "Zniech\u0119cenia"
+  - Strachu
 --- !u!1 &2075736551
 GameObject:
   m_ObjectHideFlags: 0
@@ -839,11 +879,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dcfb39d6526e4f4084bdf909afd7496, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
-  health: 25
-  attackSpeed: 1.5
+  stats:
+    damage: 1
+    health: 25
+    attackSpeed: 0.2
+    characterIcon: {fileID: 21300000, guid: 4e14c7393320d174f83b25f1b7be0087, type: 3}
   playerName: Jan Pawel II
-  playerIcon: {fileID: 21300000, guid: 4e14c7393320d174f83b25f1b7be0087, type: 3}
 --- !u!4 &2075736553
 Transform:
   m_ObjectHideFlags: 0
@@ -865,6 +906,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 722847703}
     m_Modifications:
+    - target: {fileID: 3017376046904565673, guid: 8ff29e1d41f568646aa2de3a38eb108c, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3373908814130204528, guid: 8ff29e1d41f568646aa2de3a38eb108c, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 2075736552}
+    - target: {fileID: 3373908814130204528, guid: 8ff29e1d41f568646aa2de3a38eb108c, type: 3}
+      propertyPath: playerDmgVal
+      value: 
+      objectReference: {fileID: 734534947}
+    - target: {fileID: 3373908814130204528, guid: 8ff29e1d41f568646aa2de3a38eb108c, type: 3}
+      propertyPath: lvlButtonsRoot
+      value: 
+      objectReference: {fileID: 471513788}
+    - target: {fileID: 7333992393451971164, guid: 8ff29e1d41f568646aa2de3a38eb108c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 407.22833
+      objectReference: {fileID: 0}
     - target: {fileID: 7333992393589354380, guid: 8ff29e1d41f568646aa2de3a38eb108c, type: 3}
       propertyPath: m_Name
       value: BattleInfo
@@ -971,3 +1032,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ff29e1d41f568646aa2de3a38eb108c, type: 3}
+--- !u!114 &7333992393682696393 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1892260166801133066, guid: 8ff29e1d41f568646aa2de3a38eb108c, type: 3}
+  m_PrefabInstance: {fileID: 7333992393682696392}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f275e75afe8e7046a4cec2de02efdb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7333992393682696394 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6506291077330640877, guid: 8ff29e1d41f568646aa2de3a38eb108c, type: 3}
+  m_PrefabInstance: {fileID: 7333992393682696392}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f275e75afe8e7046a4cec2de02efdb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7333992393682696395 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9089366696423201142, guid: 8ff29e1d41f568646aa2de3a38eb108c, type: 3}
+  m_PrefabInstance: {fileID: 7333992393682696392}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f275e75afe8e7046a4cec2de02efdb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
