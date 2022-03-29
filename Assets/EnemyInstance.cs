@@ -12,4 +12,6 @@ public class EnemyInstance : BaseCharacter
         stats.Health = enemy.Health;
         stats.AttackSpeed = enemy.AttackSpeed;
     }
+
+    public BaseEnemy GetEnemyStats => enemy;
 }

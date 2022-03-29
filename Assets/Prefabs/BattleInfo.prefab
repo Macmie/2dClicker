@@ -650,7 +650,7 @@ MonoBehaviour:
   enemyDmgVal: {fileID: 7333992395361440232}
   enemyHealthVal: {fileID: 7333992394796713891}
   enemyAtkSpeedVal: {fileID: 7333992395125826685}
-  enemyName: {fileID: 0}
+  enemyName: {fileID: 7333992394401727651}
   playerIcon: {fileID: 0}
   enemyIcon: {fileID: 0}
   playerPanel: {fileID: 7333992394320580097}
