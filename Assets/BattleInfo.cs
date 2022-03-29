@@ -28,6 +28,8 @@ public class BattleInfo : MonoBehaviour
     [SerializeField] private Image enemyPanel;
 
     private BattleState battleState;
+    private LvlStructure currentLvl;
+    private BaseEnemy enemy;
 
     private void Start()
     {
@@ -39,5 +41,12 @@ public class BattleInfo : MonoBehaviour
         playerPanel.sprite = playerIcon;
 
         battleState = BattleState.Hunt;
+    }
+
+
+    public void SetCurrentLvl(LvlStructure lvl)
+    {
+        currentLvl = null;
+        currentLvl = lvl;
     }
 }
