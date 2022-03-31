@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
 //using System;
 
 public class BattleInfo : MonoBehaviour
@@ -34,7 +35,9 @@ public class BattleInfo : MonoBehaviour
 
     [Header("Panel Icons")]
     [SerializeField] private Image playerPanel;
+    [SerializeField] private Image playerAttackTimer;
     [SerializeField] private Image enemyPanel;
+    [SerializeField] private Image enemyAttackTimer;
 
     [Header("Battle states")]
     [SerializeField] private CanvasGroup fight;
@@ -49,9 +52,7 @@ public class BattleInfo : MonoBehaviour
 
     private void Start()
     {
-        playerDmgVal.text = player.GetStats().Damage.ToString("F4");
-        playerHealthVal.text = player.GetStats().Health.ToString("F4");
-        playerAtkSpeedVal.text = player.GetStats().AttackSpeed.ToString("F4");
+        UpdatePlayerStats();
         playerName.text = player.PlayerName;
         playerIcon = player.GetStats().characterIcon;
         playerPanel.sprite = playerIcon;
@@ -65,6 +66,16 @@ public class BattleInfo : MonoBehaviour
         battleState = BattleState.Hunt;
 
         StartCoroutine(Hunting());
+
+        (player as BaseCharacter).GetStats().OnValueChange += UpdatePlayerStats;
+        player.GetStats().Health = player.MaxHealth;
+    }
+
+    private void UpdatePlayerStats()
+    {
+        playerDmgVal.text = player.GetStats().Damage.ToString("F4");
+        playerHealthVal.text = player.GetStats().Health.ToString("F4");
+        playerAtkSpeedVal.text = player.GetStats().AttackSpeed.ToString("F4");
     }
 
     IEnumerator Hunting()
@@ -100,14 +111,16 @@ public class BattleInfo : MonoBehaviour
 
                 StopCoroutine(playerCorout);
                 StopCoroutine(enemyCorout);
-                if (enemy.GetStats().Health == 0)
+                if (enemy.GetStats().Health <= 0)
                 {
-                    RewardThePlayer();
+                    EnemyKilled();
+                    player.GetStats().Health = player.MaxHealth;
                 }
                 else
                 {
+                    
                     Debug.Log("<color=red>YOU DIED</color>");
-                    player.GetStats().Health = 25f;
+                    player.GetStats().Health = player.MaxHealth;
                 }
                 battleState = BattleState.Hunt;
             }
@@ -116,18 +129,25 @@ public class BattleInfo : MonoBehaviour
 
     }
 
+    private void EnemyKilled()
+    {
+        (enemy as BaseCharacter).GetStats().OnValueChange -= UpdateEnemyStats;
+        RewardThePlayer();
+        battleState = BattleState.Hunt;
+    }
+
     private void RewardThePlayer()
     {
         switch (enemy.GetEnemyStats.GetSkillUpgrading())
         {
             case BaseEnemy.SkillUpgrading.ATK_SPEED:
-                player.GetStats().AttackSpeed *= .001f;
+                player.GetStats().AttackSpeed *= 1.001f;
                 break;
             case BaseEnemy.SkillUpgrading.DAMAGE:
-                player.GetStats().Damage *= .001f;
+                player.GetStats().Damage *= 1.001f;
                 break;
             case BaseEnemy.SkillUpgrading.HEALTH:
-                player.GetStats().Health *= .001f;
+                player.MaxHealth *= 1.001f;
                 break;
         }
     }
@@ -136,7 +156,7 @@ public class BattleInfo : MonoBehaviour
     {
         while (attacker.GetStats().Health > 0 && attacked.GetStats().Health > 0)
         {
-            var attackerImg = attacker.TryGetComponent<PlayerStats>(out PlayerStats ps) ? playerPanel.GetComponent<Image>() : enemyPanel.GetComponent<Image>();
+            var attackerImg = attacker.TryGetComponent<PlayerStats>(out PlayerStats ps) ? playerAttackTimer : enemyAttackTimer;
             attackerImg.fillAmount = 0;
             while (attackerImg.fillAmount < .98f)
             {
@@ -157,20 +177,27 @@ public class BattleInfo : MonoBehaviour
 
     private void SetupTheEnemy()
     {
-        modifier = Random.Range(1 - globalModifier, 1 + globalModifier);
-        enemy = currentLvl.enemies[Random.Range(0, currentLvl.enemies.Count - 1)];
+        modifier = UnityEngine.Random.Range(1 - globalModifier, 1 + globalModifier);
+        enemy = currentLvl.enemies[UnityEngine.Random.Range(0, currentLvl.enemies.Count - 1)];
 
         enemy.GetStats().AttackSpeed *= modifier;
         enemy.GetStats().Damage *= modifier;
         enemy.GetStats().Health *= modifier;
 
-        enemyDmgVal.text = enemy.GetStats().Damage.ToString();
-        enemyHealthVal.text = enemy.GetStats().Health.ToString();
-        enemyAtkSpeedVal.text = enemy.GetStats().AttackSpeed.ToString();
+        UpdateEnemyStats();
         enemyName.text = currentLvl.GenerateEnemyName();
 
         enemyIcon = enemy.GetStats().characterIcon;
 
+        (enemy as BaseCharacter).GetStats().OnValueChange += UpdateEnemyStats;
+
+    }
+
+    private void UpdateEnemyStats()
+    {
+        enemyDmgVal.text = enemy.GetStats().Damage.ToString("F4");
+        enemyHealthVal.text = enemy.GetStats().Health.ToString("F4");
+        enemyAtkSpeedVal.text = enemy.GetStats().AttackSpeed.ToString("F4");
     }
 
     private void FillTimer(Image img, float parameter)
